@@ -1,5 +1,5 @@
 import {
-    FETCH_DATA, FETCH_DATA_SUCCESS, FETCH_DATA_FAIL
+    FETCH_DATA, FETCH_DATA_SUCCESS, FETCH_DATA_FAIL, SET_GENDER
 } from './types';
 
 
@@ -23,7 +23,13 @@ function BoardReducer(state, action) {
             return {
                 ...state,
                 iserror: true
-            }
+            };
+
+        case SET_GENDER: 
+             return {
+                 ...state,
+                 gender: action.gender
+             }
         
 
         default:

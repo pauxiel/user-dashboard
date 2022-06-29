@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import React,{useEffect, useReducer } from 'react';
-import {FETCH_DATA, FETCH_DATA_SUCCESS, FETCH_DATA_FAIL} from './reducers/types';
+import {FETCH_DATA, FETCH_DATA_SUCCESS, FETCH_DATA_FAIL, SET_GENDER} from './reducers/types';
 import axios from 'axios';
 import  BoardReducer from './reducers/BoardReducer';
 
@@ -17,8 +17,11 @@ function App() {
     loading: false,
     iserror: false  
   }
-
+  
+  //The useReducer hook takes a reducer and an intial state as arguments to return an array with two constant elemnt 
+  // a state and something you call it to update that state called dispatch 
   const [state, dispatch] = useReducer(BoardReducer, initialState);
+  const {users, search, gender, activeGender, sortButton, loading, iserror} = state;
 
     useEffect(() => {
       const fetchData = async () => {
@@ -30,8 +33,16 @@ function App() {
             users: response.data.results,
           })
 
-          // const leus = response.data.results;
-          // let leugender = leus.map(leu => leu.gender);
+          const userlist = response.data.results;
+          let userGender = userlist.map(user => user.gender);
+          userGender = ['all', ...new Set(userGender)]
+
+          console.log(userGender);
+
+          dispatch({
+            type: SET_GENDER,
+            gender: userGender,
+          })
           
           // leugender = ['all', ...new Set(leugender)];
           // console.log(leugender);
