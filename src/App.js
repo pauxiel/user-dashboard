@@ -3,6 +3,7 @@ import React,{useEffect, useReducer } from 'react';
 import {FETCH_DATA, FETCH_DATA_SUCCESS, FETCH_DATA_FAIL, SET_GENDER} from './reducers/types';
 import axios from 'axios';
 import  BoardReducer from './reducers/BoardReducer';
+import BoardContext from './context/BoardContext';
 
 import './App.css';
 
@@ -58,7 +59,9 @@ function App() {
 
  
   return (
-    <div className="App">
+
+    <BoardContext.Provider value = {{state, dispatch}}>
+        <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
@@ -78,6 +81,9 @@ function App() {
 
       </header>
     </div>
+
+    </BoardContext.Provider>
+    
   );
 }
 
