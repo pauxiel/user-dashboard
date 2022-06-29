@@ -4,6 +4,7 @@ import {FETCH_DATA, FETCH_DATA_SUCCESS, FETCH_DATA_FAIL, SET_GENDER} from './red
 import axios from 'axios';
 import  BoardReducer from './reducers/BoardReducer';
 import BoardContext from './context/BoardContext';
+import HeroContainer from './layout/HeroContainer';
 
 import './App.css';
 
@@ -61,26 +62,9 @@ function App() {
   return (
 
     <BoardContext.Provider value = {{state, dispatch}}>
-        <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-        <h1 className="text-4xl font-bold underline">
-       Hello world!
-    </h1>
-
-      </header>
-    </div>
+        <div className="w-full h-full flex flex-row bg-no-repeat ">
+              <HeroContainer/>
+       </div>
 
     </BoardContext.Provider>
     

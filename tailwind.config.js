@@ -1,8 +1,12 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./src/App.js"],
+  content: ["./src/**/*.{js,jsx,ts,tsx}",],
   theme: {
-    extend: {},
+    extend: {
+      screens: {
+        'md': {'max': '812px'},
+      }
+    },
   },
   plugins: [],
 }
