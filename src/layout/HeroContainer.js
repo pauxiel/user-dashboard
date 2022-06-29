@@ -3,7 +3,7 @@ import { FiSearch } from 'react-icons/fi';
 
 
 
-function HeroContainer() {
+function HeroContainer({ handleSearchSubmit, handleSearch }) {
 
 
     return (
@@ -11,10 +11,10 @@ function HeroContainer() {
                 <div className="justify-center items-center mt-[5rem] mb-[5rem]">
                   <div className="text-white opacity-100 text-4xl tracking-tighter">Hello, <strong>Emerald</strong></div>
                   <div className="text-sm font-light text-white tracking-wide opacity-60 mt-4 mb-8">Welcome to your dashboard, kindly sort through the user base</div>
-                  <form>
+                  <form onSubmit = {handleSearchSubmit}>
                     <div className="search-form">
                         <FiSearch className="search-ico"/>
-                        <input className="search" type="text"  placeholder="Find a user" />
+                        <input className="search" type="text" onChange = {handleSearch}  placeholder="Find a user" />
                     </div>
                     </form>
 

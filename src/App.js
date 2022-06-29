@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import React,{useEffect, useReducer } from 'react';
-import {FETCH_DATA, FETCH_DATA_SUCCESS, FETCH_DATA_FAIL, SET_GENDER} from './reducers/types';
+import {FETCH_DATA, FETCH_DATA_SUCCESS, FETCH_DATA_FAIL, SET_GENDER, SET_SEARCH} from './reducers/types';
 import axios from 'axios';
 import  BoardReducer from './reducers/BoardReducer';
 import BoardContext from './context/BoardContext';
@@ -57,13 +57,28 @@ function App() {
       };
       fetchData();
     }, [])
+      
+    // handle search submit
+    function handleSearchSubmit(e) {
+      e.prevent.Default();
+    }
+
+    // handle search
+    function handleSearch(e) {
+      dispatch({
+         type: SET_SEARCH,
+         search: e.target.value
+      })
+    }
+
+
 
  
   return (
 
     <BoardContext.Provider value = {{state, dispatch}}>
         <div className="w-full h-full flex flex-row bg-no-repeat ">
-              <HeroContainer/>
+              <HeroContainer handleSearch = {handleSearch} handleSearchSubmit = {handleSearchSubmit}/>
        </div>
 
     </BoardContext.Provider>
