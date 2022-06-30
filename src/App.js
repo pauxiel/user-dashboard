@@ -71,6 +71,10 @@ function App() {
       })
     }
 
+    function filterUsers() {
+      console.log('filteruser')
+    }
+
 
 
  
@@ -78,7 +82,7 @@ function App() {
 
     <BoardContext.Provider value = {{state, dispatch}}>
         <div className="w-full h-full flex flex-row bg-no-repeat ">
-              <HeroContainer handleSearch = {handleSearch} handleSearchSubmit = {handleSearchSubmit}/>
+              <HeroContainer handleSearch = {handleSearch} handleSearchSubmit = {handleSearchSubmit} filterUsers = {filterUsers}/>
        </div>
 
     </BoardContext.Provider>

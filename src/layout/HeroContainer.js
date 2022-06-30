@@ -1,9 +1,10 @@
 import React from 'react';
 import { FiSearch } from 'react-icons/fi';
+import GenderButton from '../components/GenderButton';
 
 
 
-function HeroContainer({ handleSearchSubmit, handleSearch }) {
+function HeroContainer({ handleSearchSubmit, handleSearch, filterUsers }) {
 
 
     return (
@@ -19,6 +20,7 @@ function HeroContainer({ handleSearchSubmit, handleSearch }) {
                     </form>
 
                   <div className="show-users">Show Users</div>
+                  <GenderButton filterUsers = {filterUsers}/>
                   
               </div>
             </div>
