@@ -17,7 +17,8 @@ function App() {
     activeGender: [],
     sortButton: [],
     loading: false,
-    iserror: false  
+    iserror: false,
+    isHidden: true
   }
   
   //The useReducer hook takes a reducer and an intial state as arguments to return an array with two constant elemnt 
@@ -58,18 +59,7 @@ function App() {
       fetchData();
     }, [])
       
-    // handle search submit
-    function handleSearchSubmit(e) {
-      e.prevent.Default();
-    }
-
-    // handle search
-    function handleSearch(e) {
-      dispatch({
-         type: SET_SEARCH,
-         search: e.target.value
-      })
-    }
+   
 
     function filterUsers() {
       console.log('filteruser')
@@ -82,7 +72,7 @@ function App() {
 
     <BoardContext.Provider value = {{state, dispatch}}>
         <div className="w-full h-full flex flex-row bg-no-repeat ">
-              <HeroContainer handleSearch = {handleSearch} handleSearchSubmit = {handleSearchSubmit} filterUsers = {filterUsers}/>
+              <HeroContainer filterUsers = {filterUsers}/>
        </div>
 
     </BoardContext.Provider>

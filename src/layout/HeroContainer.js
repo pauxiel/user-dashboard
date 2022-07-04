@@ -1,10 +1,28 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import { FiSearch } from 'react-icons/fi';
 import GenderButton from '../components/GenderButton';
+import BoardContext from "../context/BoardContext";
+import {SET_SEARCH} from '../reducers/types';
 
 
 
-function HeroContainer({ handleSearchSubmit, handleSearch, filterUsers }) {
+function HeroContainer({ filterUsers }) {
+
+  const { state, dispatch } = useContext(BoardContext);
+  const { search } = state;
+
+   // handle search submit
+   function handleSearchSubmit(e) {
+    e.prevent.Default();
+  }
+
+  // handle search
+  function handleSearch(e) {
+    dispatch({
+       type: SET_SEARCH,
+       search: e.target.value
+    })
+  }
 
 
     return (
