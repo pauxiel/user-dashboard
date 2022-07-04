@@ -18,7 +18,9 @@ function App() {
     sortButton: [],
     loading: false,
     iserror: false,
-    isHidden: true
+    isHidden: true,
+    currentPage: 1,
+    usersPerPage: 10
   }
   
   //The useReducer hook takes a reducer and an intial state as arguments to return an array with two constant elemnt 
